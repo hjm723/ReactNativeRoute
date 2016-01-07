@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react-native');
-var EntryList = require('./EntryList');
+var EntryList = require('./entryList');
 var Router = require('./router');
 
 var {
@@ -40,7 +40,7 @@ var SearchEntry = React.createClass({
 
         let route = Router.getSearchListRoute(responseData, this.state.tagName);
         this.props.navigator.push(route);
-        // let route = Router.getHomeRoute();
+        // let route = Router.getEntryRoute();
         // this.props.navigator.push(route);
       } else {
         this.setState({ errorMessage: 'No Result found'});
@@ -71,8 +71,8 @@ var SearchEntry = React.createClass({
             <TextInput style={styles.searchInput} onChange={this.tagInput}/>
           </View>
         </View>
-        <TouchableHighlight style={styles.button} underLayColor='#f1c40f'>
-          <Text style={styles.buttonText} onPress={this.searchEntry}>Search</Text>
+        <TouchableHighlight style={styles.button} underLayColor='#f1c40f' onPress={this.searchEntry}>
+          <Text style={styles.buttonText} >Search</Text>
         </TouchableHighlight>
       </View>
     );

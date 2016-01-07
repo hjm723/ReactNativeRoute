@@ -1,14 +1,13 @@
 'use strict';
 
 var React = require('react-native');
+var Button = require('react-native-button');
+var Router = require('./router');
 
 var {
   View,
   Text,
 } = React;
-
-var Button = require('react-native-button');
-var Router = require('./router');
 
 class HomeScene extends React.Component {
   render() {
@@ -17,7 +16,7 @@ class HomeScene extends React.Component {
         <Button
           style={styles.button}
           onPress={() => {
-            let route = Router.getHomeRoute();
+            let route = Router.getEntryRoute();
             this.props.navigator.push(route);
           }}
         >

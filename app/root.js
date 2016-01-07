@@ -1,11 +1,10 @@
 'use strict';
 
-var React = require('react-native');
-
 import ExNavigator from '@exponent/react-native-navigator';
 
-var Button = require('react-native-button');
+var React = require('react-native');
 var Router = require('./router.js');
+var Button = require('react-native-button');
 
 var {
   AppRegistry,
@@ -18,8 +17,8 @@ class Component extends React.Component {
     return (
       <ExNavigator
         initialRoute={Router.getTopRoute()}
-        style={{ flex: 1}}
-        sceneStyle={{ paddingTop: 64}}
+        style={{ flex: 1 }}
+        sceneStyle={{ paddingTop: 64 }}
       />
     );
   }

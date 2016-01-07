@@ -1,13 +1,13 @@
 'use strict';
 
 var React = require('react-native');
+var Button = require('react-native-button');
+
 var {
   View,
   Text,
   Image
 } = React;
-
-var Button = require('react-native-button');
 
 let Router = {
   getTopRoute() {
@@ -20,20 +20,20 @@ let Router = {
       },
     };
   },
-  getHomeRoute() {
+  getEntryRoute() {
     return {
       getSceneClass() {
-        return require('./EntryList');
+        return require('./entryList');
       },
       getTitle() {
-        return '最新の記事一覧';
+        return '最新';
       },
     };
   },
   getSearchRoute() {
     return {
       getSceneClass() {
-        return require('./SearchEntry');
+        return require('./searchEntry');
       },
       getTitle() {
         return '検索';
@@ -43,7 +43,7 @@ let Router = {
   getSearchListRoute(entry, name) {
     return {
       renderScene(navigator) {
-        let EntryList = require('./EntryList');
+        let EntryList = require('./entryList');
         return (
           <EntryList navigator={navigator} entries={entry}/>
         );
@@ -59,17 +59,25 @@ let Router = {
         let ProfileScene = require('./profileScene');
         return <ProfileScene navigator={navigator} profile={profile} />;
       },
-      renderTitle() {
-        return (
-          <View style={styles.container}>
-            <Image source={{uri: profile.photoUrl}} style={styles.titlePhoto} />
-            <Text style={styles.titleName}>{profile.name}</Text>
-          </View>
-        );
-      },
+      // renderTitle() {
+      //   return (
+      //     <View style={styles.container}>
+      //       <Image source={{uri: profile.photoUrl}} style={styles.titlePhoto} />
+      //       <Text style={styles.titleName}>{profile.name}</Text>
+      //     </View>
+      //   );
+      // },
       getTitle() {
         return profile.name;
       },
+      // renderRightButton() {
+      //   return (
+      //     <Button onPress={() => { console.log('Tapped right button'); }}>
+      //       Add
+      //     </Button>
+      //   );
+      // },
+
     };
   },
 };
